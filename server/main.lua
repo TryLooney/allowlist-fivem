@@ -1,5 +1,6 @@
 local projectId = ""
 local accessToken = ""
+local projectUrl = "https://template-01.yorpex.app"
 
 AddEventHandler("playerConnecting", function(name, setKickReason, deferrals)
   deferrals.defer()
@@ -32,7 +33,7 @@ AddEventHandler("playerConnecting", function(name, setKickReason, deferrals)
     local isApproved = json.decode(resultData)['isApproved'] == true
 
     if not isApproved then
-      deferrals.done("Você ainda não fez sua allowlist, acesse https://template-01.yorpex.app/allowlist para fazer.")
+      deferrals.done("Você ainda não fez sua allowlist, acesse "..projectUrl.."/allowlist para fazer.")
     else
       deferrals.done()
     end
